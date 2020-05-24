@@ -9,6 +9,17 @@ import CheckList from "./components/checklist";
 import Score from './components/score';
 
 class App extends Component {
+constructor(props){
+  super(props);
+
+  this.determineScore=this.determineScore.bind(this);
+
+  this.state={score:30};
+}
+determineScore(score){
+  //this.setstate.score: score;
+}
+
   render(){
     return (
       <Router>
