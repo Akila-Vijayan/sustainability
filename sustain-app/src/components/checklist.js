@@ -1,10 +1,19 @@
 import React, {Component} from 'react';
 
 export default class CheckList extends Component {
+  constructor(props){
+    super(props);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+  
+  onSubmit (e) {
+    e.preventDefault();
+    this.props.history.push('/score');
+  }
   render () {
     return (
       <div>
-        <form>
+        <form onSubmit={this.onSubmit}>
           <div>
             <label>Do you have Solar Panels or Solar Water Heater at home?</label>
             <input type="radio" value="Yes"/> Yes
@@ -31,7 +40,7 @@ export default class CheckList extends Component {
             <input type="radio" value="No"/> No
           </div>
           <div>
-            <input type="button" value="Credit Score" />
+            <input type="submit" value="Credit Score" />
           </div>
         </form>
       </div>

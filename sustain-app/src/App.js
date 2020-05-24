@@ -6,6 +6,7 @@ import Header from "./components/header";
 import Home from "./components/home";
 import SignUp from "./components/signup";
 import CheckList from "./components/checklist";
+import Score from './components/score';
 
 class App extends Component {
   render(){
@@ -16,6 +17,7 @@ class App extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/signup" component={SignUp} />
           <Route path="/creditScore" component={CheckList} />
+          <Route path="/score" component={Score} />
         </div>
       </Router>
     );
