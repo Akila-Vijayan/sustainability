@@ -12,23 +12,24 @@ class App extends Component {
 constructor(props){
   super(props);
 
-  this.determineScore=this.determineScore.bind(this);
+  this.updateScore=this.updateScore.bind(this);
 
-  this.state={score:30};
+  this.state={score:0};
 }
-determineScore(score){
-  //this.setstate.score: score;
+updateScore = (score) => {
+  this.setState({score});
 }
 
   render(){
+    const {score} =this.state;
     return (
       <Router>
         <div className="container">
           <Header />
           <Route path="/" exact component={Home} />
           <Route path="/signup" component={SignUp} />
-          <Route path="/creditScore" component={CheckList} />
-          <Route path="/score" component={Score} />
+          <Route path="/creditScore" render={(props)=> <CheckList {...props} updateScore={this.updateScore}/>} />
+          <Route path="/score" render={(props)=> <Score score={score}/>}/>
         </div>
       </Router>
     );

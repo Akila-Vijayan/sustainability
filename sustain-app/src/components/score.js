@@ -5,7 +5,7 @@ class Score extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      score: 30,
+      score: this.props.score,
     };
   }
   render() {
