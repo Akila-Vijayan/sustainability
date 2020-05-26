@@ -67,12 +67,13 @@ export default class CheckList extends Component {
       creditScore : Number(this.state.Q1) + Number(this.state.Q2) + Number(this.state.Q3)
               + Number(this.state.Q4) + Number(this.state.Q5)
     });
-
-    console.log(`${this.state.creditScore}`);
-
-    this.props.updateScore(this.state.creditScore);
-    this.props.history.push('/score');
-
+    
+    this.componentDidUpdate= (prevProps, prevState) => {
+      console.log(`${this.state.creditScore}`);
+  
+      this.props.updateScore(this.state.creditScore);
+      this.props.history.push('/score');
+      };
   }
 
   render () {
