@@ -1,18 +1,19 @@
 import React, {Component} from 'react';
+import Bgi from './images/BackgroundImage.jpg';
+import '../App.css';
 
 export default class Header extends Component {
   render () {
     const title = {
-      color: "Black",
-      backgroundColor: "#00cc00",
-      padding: "20px",
-      fontFamily: "Edwardian Script ITC"
+      color: "White",
+      padding: "50px",
+      fontFamily: "Monotype Corsiva",
+      fontSize:"55px",
+      height:"150px"
     };
     return (
-      <div>
-        <p>
-          <h1 style={title} align="center"> <b> LBG - Sustainable Living </b> </h1>
-        </p>
+      <div className="background-banner" style={{backgroundImage: `url(${Bgi})` }}>
+        <h1 style={title} align="center"> <b> Sustainability Check </b> </h1>
       </div>
     );
   }
