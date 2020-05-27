@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router';
 import axios from 'axios';
+import Bg1 from './images/Template.jpg';
 
 
 export default class SignUp extends Component {
@@ -78,31 +79,40 @@ export default class SignUp extends Component {
     const style = {
       color: "Black",
       padding: "20px",
-      fontFamily: "Times New Roman"
+      fontFamily: "Calibri (Body)",
+      fontSize:"20px"
     };
     return (
-      <div>
-        <h4 style={style} align="center">
-        Please enter your details to move onto checklist.... <br/>
-        Customer details <br/> <br/>
+      <div align="center" style={{backgroundImage: `url(${Bg1})` }}>
+        <h4 style={style} >
+        Welcome! <br/><p></p> Please enter your details to move onto checklist.... <br/>
+         <br/> 
         <form onSubmit = {this.onSubmit}>
           <div>
-             <label> First Name </label>
+             <label>  First Name  </label>{" "}<label></label>{" "}
              <input type='text' value={this.state.firstname} onChange={this.onChangeFirstName}/>
           </div>
+          <br/>
           <div>
-             <label> Last Name </label>
+             <label> Last Name  </label>{" "}<label></label>{" "}
              <input type='text' value={this.state.lastname} onChange={this.onChangeLastName}/>
           </div>
+          <br/>
           <div>
-             <label> Postcode </label>
+          
+          <label> Postcode  </label>{" "}<label></label>{" "}<label></label>{" "}<label></label>{" "}
+    
              <input type='text' value={this.state.postcode} onChange={this.onChangePostcode}/>
           </div>
+          <br/>
           <div>
-             <label> Email ID </label>
+             <label> Email ID  </label>{" "}<label></label>{" "}<label></label>{" "}<label></label>{" "}<label></label>{" "}
              <input type='text' value={this.state.emailid} onChange={this.onChangeEmailID}/>
           </div>
-          <input type='submit' value='Register'/>
+          <br/>
+          <div align="center">
+          <input className="btn btn-success" type='submit' value='Register'/>
+          </div>
         </form>
         </h4>
       </div>
