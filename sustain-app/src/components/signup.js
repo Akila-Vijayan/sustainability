@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-import {Redirect} from 'react-router';
 import axios from 'axios';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Bg1 from './images/Template.jpg';
-
 
 export default class SignUp extends Component {
   constructor(props){
@@ -72,49 +74,60 @@ export default class SignUp extends Component {
       emailid: ''
     });
 
-    this.props.history.push('/creditScore');
+    this.props.history.push('/checkList');
   }
 
   render () {
-    const style = {
-      color: "Black",
-      padding: "20px",
-      fontFamily: "Calibri (Body)",
-      fontSize:"20px"
-    };
     return (
       <div align="center" style={{backgroundImage: `url(${Bg1})` }}>
-        <h4 style={style} >
-        Welcome! <br/><p></p> Please enter your details to move onto checklist.... <br/>
-         <br/> 
-        <form onSubmit = {this.onSubmit}>
-          <div>
-             <label>  First Name  </label>{" "}<label></label>{" "}
-             <input type='text' value={this.state.firstname} onChange={this.onChangeFirstName}/>
-          </div>
+        <br/> Welcome!
+        <br/> <br/>Please enter your details to move onto the checklist.... <br/> <br/>
+
+        <Form onSubmit = {this.onSubmit}>
+
+          <Form.Group as={Row} controlId="firstname">
+            <Form.Label column sm={2}>
+              First Name
+            </Form.Label>
+            <Col sm={5}>
+              <Form.Control type="text" value={this.state.firstname} onChange={this.onChangeFirstName} />
+            </Col>
+          </Form.Group>
+
+          <Form.Group as={Row} controlId="lastname">
+            <Form.Label column sm={2}>
+              Last Name
+            </Form.Label>
+            <Col sm={5}>
+              <Form.Control type="text" value={this.state.lastname} onChange={this.onChangeLastName} />
+            </Col>
+          </Form.Group>
+
+          <Form.Group as={Row} controlId="postcode">
+            <Form.Label column sm={2}>
+              Post Code
+            </Form.Label>
+            <Col sm={5}>
+              <Form.Control type="text" value={this.state.postcode} onChange={this.onChangePostcode} />
+            </Col>
+          </Form.Group>
+
+          <Form.Group as={Row} controlId="emailid">
+            <Form.Label column sm={2}>
+              Email ID
+            </Form.Label>
+            <Col sm={5}>
+              <Form.Control type="email" value={this.state.emailid} onChange={this.onChangeEmailID} />
+            </Col>
+          </Form.Group>
+
           <br/>
-          <div>
-             <label> Last Name  </label>{" "}<label></label>{" "}
-             <input type='text' value={this.state.lastname} onChange={this.onChangeLastName}/>
-          </div>
-          <br/>
-          <div>
-          
-          <label> Postcode  </label>{" "}<label></label>{" "}<label></label>{" "}<label></label>{" "}
-    
-             <input type='text' value={this.state.postcode} onChange={this.onChangePostcode}/>
-          </div>
-          <br/>
-          <div>
-             <label> Email ID  </label>{" "}<label></label>{" "}<label></label>{" "}<label></label>{" "}<label></label>{" "}
-             <input type='text' value={this.state.emailid} onChange={this.onChangeEmailID}/>
-          </div>
-          <br/>
-          <div align="center">
-          <input className="btn btn-success" type='submit' value='Register'/>
-          </div>
-        </form>
-        </h4>
+          <Button variant="success" type="submit">
+            Submit
+          </Button>
+
+        </Form>
+        <br/> <br/>
       </div>
     );
   }
