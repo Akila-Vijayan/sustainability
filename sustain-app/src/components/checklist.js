@@ -62,97 +62,89 @@ export default class CheckList extends Component {
     console.log(`${this.state.Q4}`);
     console.log(`${this.state.Q5}`);
     console.log(`${this.state.creditScore}`);
-    console.log(`${this.props.score}`);
 
     this.setState({
       creditScore : Number(this.state.Q1) + Number(this.state.Q2) + Number(this.state.Q3)
               + Number(this.state.Q4) + Number(this.state.Q5)
     });
-    
+
     this.componentDidUpdate= (prevProps, prevState) => {
       console.log(`${this.state.creditScore}`);
-  
       this.props.updateScore(this.state.creditScore);
       this.props.history.push('/score');
-      };
+    };
   }
 
   render () {
-    const style = {
-      color: "Black",
-      padding: "10px",
-      fontFamily: "Calibri (Body)",
-      fontSize:"20px"
-    };
     return (
       <div style={{backgroundImage: `url(${Bg1})` }}>
         <br/>
         <form onSubmit={this.onSubmit}>
 
-          <div className="form-group">
-    <h4 style={style} ><label></label>{" "}<label className="form-check-label"> Do you have Solar Panels or Solar Water Heater at home?  </label>{" "}<label></label>{" "}
-            <div className="form-check form-check-inline">
+          <div className="form-group row">
+            <label className="form-check-label col-sm-6">Do you have Solar Panels or Solar Water Heater at home?  </label>
+            <div className="form-check form-check-inline col-sm-1">
               <input className="form-check-input" type="radio" id="Q1Yes" name="Q1" value="20" checked={this.state.Q1==='20'} onChange={this.onChangeQ1}/>
               <label className="form-check-label"> Yes </label>
             </div>
-            <div className="form-check form-check-inline">
+            <div className="form-check form-check-inline col-sm-1">
               <input className="form-check-input" type="radio"  id="Q1No" name="Q1" value="0" checked={this.state.Q1==='0'} onChange={this.onChangeQ1}/>
               <label className="form-check-label"> No </label>
-            </div></h4>
+            </div>
           </div>
 
-
-          <div className="form-group">
-          <h4 style={style} ><label></label>{" "}<label className="form-check-label">Do you have Grey Water system at home?</label>{" "}<label></label>{" "}
-            <div className="form-check form-check-inline">
+          <div className="form-group row">
+            <label className="form-check-label col-sm-6">Do you have Grey Water system at home?</label>
+            <div className="form-check form-check-inline col-sm-1">
               <input className="form-check-input" type="radio"  id="Q2Yes" name="Q2" value="20" checked={this.state.Q2==='20'} onChange={this.onChangeQ2}/>
               <label className="form-check-label"> Yes </label>
             </div>
-            <div className="form-check form-check-inline">
+            <div className="form-check form-check-inline col-sm-1">
               <input className="form-check-input" type="radio"  id="Q2No" name="Q2" value="0" checked={this.state.Q2==='0'} onChange={this.onChangeQ2}/>
               <label className="form-check-label"> No </label>
-            </div></h4>
+            </div>
           </div>
 
-          <div className="form-group">
-          <h4 style={style} ><label></label>{" "}<label className="form-check-label">Do you have Cooling roof at home?</label>{" "}<label></label>{" "}
-            <div className="form-check form-check-inline">
+          <div className="form-group row">
+            <label className="form-check-label col-sm-6">Do you have Cooling roof at home?</label>
+            <div className="form-check form-check-inline col-sm-1">
               <input className="form-check-input" type="radio"  id="Q3Yes" name="Q3" value="20" checked={this.state.Q3==='20'} onChange={this.onChangeQ3}/>
               <label className="form-check-label"> Yes </label>
             </div>
-            <div className="form-check form-check-inline">
+            <div className="form-check form-check-inline col-sm-1">
               <input className="form-check-input" type="radio" id="Q3No" name="Q3" value="0" checked={this.state.Q3==='0'} onChange={this.onChangeQ3}/>
               <label className="form-check-label"> No </label>
-            </div></h4>
+            </div>
           </div>
 
-          <div className="form-group">
-          <h4 style={style} ><label></label>{" "}<label className="form-check-label">Do you have Energy star rated Kitchen appliances at home?</label>{" "}<label></label>{" "}
-            <div className="form-check form-check-inline">
+          <div className="form-group row">
+            <label className="form-check-label col-sm-6">Do you have Energy star rated Kitchen appliances at home?</label>
+            <div className="form-check form-check-inline col-sm-1">
               <input className="form-check-input" type="radio" id="Q4Yes" name="Q4" value="20" checked={this.state.Q4==='20'} onChange={this.onChangeQ4}/>
               <label className="form-check-label"> Yes </label>
             </div>
-            <div className="form-check form-check-inline">
+            <div className="form-check form-check-inline col-sm-1">
               <input className="form-check-input" type="radio" id="Q4No" name="Q4" value="0" checked={this.state.Q4==='0'} onChange={this.onChangeQ4}/>
               <label className="form-check-label"> No </label>
-            </div></h4>
+            </div>
           </div>
 
-          <div className="form-group">
-           <h4 style={style} ><label></label>{" "}<label className="form-check-label">Do you have Natural shading at home?</label>{" "}<label></label>{" "}
-            <div className="form-check form-check-inline">
+          <div className="form-group row">
+            <label className="form-check-label col-sm-6">Do you have Natural shading at home?</label>
+            <div className="form-check form-check-inline col-sm-1">
               <input className="form-check-input" type="radio" id="Q5Yes" name="Q5" value="20" checked={this.state.Q5==='20'} onChange={this.onChangeQ5}/>
               <label className="form-check-label"> Yes </label>
             </div>
-            <div className="form-check form-check-inline">
+            <div className="form-check form-check-inline col-sm-1">
               <input className="form-check-input" type="radio" id="Q5No" name="Q5" value="0" checked={this.state.Q5==='0'} onChange={this.onChangeQ5}/>
               <label className="form-check-label"> No </label>
-            </div></h4>
+            </div>
           </div>
-          <br/>
+          <br/><br/>
           <div className="form-group" align="center">
             <input className="btn btn-success" type="submit" value="Sustainability Score"  />
           </div>
+          <br/><br/>
         </form>
       </div>
     );
